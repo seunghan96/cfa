@@ -23,9 +23,7 @@ We systematically investigate how text information from large language models (L
 ### **Overview of Conditional Fusion Adapter (CFA)**
 
 <div align="center">
-  <a href="figures/main_figure.pdf">
-    <img src="figures/main_figure.pdf" width="100%">
-  </a>
+  <img src="figures/main_figure.png" width="100%">
 </div>
 
 Key contributions:
@@ -57,8 +55,6 @@ cfa/
 │   └── ...
 ├── data_provider/                  # Data loading utilities
 ├── utils/                          # Metrics, tools, augmentation
-├── Dockerfile                      # NVIDIA PyTorch container setup
-├── build.sh                        # Docker image builder
 └── environment.txt                 # Full dependency list
 ```
 
