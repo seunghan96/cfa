@@ -8,3 +8,7 @@ dist/
 build/
 .env
 .locks/
+run.sh
+Dockerfile
+LICENSE
+figures/main_figure.pdf
