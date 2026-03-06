@@ -15,8 +15,11 @@ If you find this repository useful, please cite our paper:
 
 ## Overview
 
-This repository provides a unified evaluation framework for **multimodal fusion strategies** in time series forecasting.
-We systematically investigate how text information from large language models (LLMs) can be integrated into diverse time series backbone architectures through various fusion methods.
+Recent advances in multimodal learning motivate integrating **auxiliary modalities** such as text into time series forecasting. 
+
+However, _**naive fusion**_ strategies based on simple addition or concatenation often degrade performance, highlighting the need for _**selective fusion**_ that preserves temporal dynamics. 
+
+We propose **Conditional Fusion Adapter (CFA)**, a lightweight plug-in framework that enables controlled cross-modal interactions and consistently improves forecasting performance across diverse datasets and models.
 
 <br>
 
@@ -31,7 +34,9 @@ Key contributions:
 - **9 real-world datasets** spanning different domains and temporal frequencies
 - Modular architecture enabling plug-and-play combination of any backbone, text encoder, and fusion strategy
 
-## Project Structure
+<br>
+
+## File Structure
 
 ```
 cfa/
@@ -58,6 +63,8 @@ cfa/
 └── environment.txt                 # Full dependency list
 ```
 
+<br>
+
 ## Experimental Settings
 
 ### Datasets
@@ -76,6 +83,8 @@ We use 9 datasets from [Time-MMD](https://github.com/AdityaLab/Time-MMD) across 
 | Social Good | US Unemployment Rate | Monthly |
 | Traffic | US VMT | Monthly |
 
+<br>
+
 ### Models
 
 | Category | Type | Models |
@@ -85,6 +94,8 @@ We use 9 datasets from [Time-MMD](https://github.com/AdityaLab/Time-MMD) across 
 | | Others | Koopa, FiLM |
 | **Text Encoder** | — | BERT, GPT-2, Llama 3, Doc2Vec |
 
+<br>
+
 ### Forecasting Horizons
 
 | Frequency | Horizons (*H*) | Lookback | Label |
@@ -93,11 +104,15 @@ We use 9 datasets from [Time-MMD](https://github.com/AdityaLab/Time-MMD) across 
 | Weekly | 12, 24, 36, 48 | 36 | 18 |
 | Monthly | 6, 8, 10, 12 | 8 | 4 |
 
+<br>
+
 ### Learning Rates
 
 For each combination of dataset, backbone, and horizon, the best learning rate is selected from:
 
 `{5e-6, 1e-5, 5e-5, 1e-4, 2e-4, 5e-4, 1e-3, 2e-3, 5e-3, 1e-2}`
+
+<br>
 
 ### Fusion Methods
 
@@ -107,7 +122,7 @@ For each combination of dataset, backbone, and horizon, the best learning rate i
 | | Concat | First (Input), Middle (Intermediate), Last (Output) |
 | **Selective** | — | Gating, FiLM, Orthogonal, **CFA (Ours)** |
 
-
+<br>
 
 ## Multimodal Datasets
 
@@ -125,6 +140,8 @@ data/
 └── Traffic/
 ```
 
+<br>
+
 ## Running Experiments
 
 Run the full experiment suite:
@@ -141,6 +158,8 @@ This iterates over all combinations of:
 - 9 datasets with frequency-appropriate horizons
 
 Results are saved to `./results/`.
+
+<br>
 
 ## Acknowledgements
 
