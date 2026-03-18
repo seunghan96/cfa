@@ -31,11 +31,6 @@ Building on this, we propose **Controlled Fusion Adapter (CFA)**, a lightweight 
   <img src="figures/main_figure.png" width="100%">
 </div>
 
-Key contributions:
-- **10 fusion methods** (6 naive + 4 constrained) evaluated across **14 time series backbones** and **4 text encoders**
-- **9 real-world datasets** spanning different domains and temporal frequencies
-- Modular architecture enabling plug-and-play combination of any backbone, text encoder, and fusion strategy
-
 <br>
 
 ## File Structure
@@ -145,6 +140,11 @@ data/
 <br>
 
 ## Running Experiments
+- **10 fusion methods** (6 naive + 4 constrained) evaluated across **14 time series backbones** and **4 text encoders**
+- **9 real-world datasets** spanning different domains and temporal frequencies
+- Modular architecture enabling plug-and-play combination of any backbone, text encoder, and fusion strategy
+
+<br>
 
 Run the full experiment suite:
 
