@@ -1,4 +1,4 @@
-# On the Importance of Selective Fusion for Multimodal Time Series Forecasting
+# Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion
 
 <!--
 ## Citation
@@ -15,22 +15,24 @@ If you find this repository useful, please cite our paper:
 
 ## Overview
 
-Recent advances in multimodal learning motivate integrating **auxiliary modalities** such as text into time series forecasting. 
+Recent advances in multimodal learning motivate integrating **auxiliary modalities** such as text or vision into **time series forecasting**.
 
-However, _**naive fusion**_ strategies based on simple addition or concatenation often degrade performance, highlighting the need for _**selective fusion**_ that preserves temporal dynamics. 
+However, ***naive fusion*** strategies based on simple addition or concatenation often degrade performance, as uncontrolled integration introduces **irrelevant or misaligned information** and fails to preserve temporal dynamics.
 
-We propose **Conditional Fusion Adapter (CFA)**, a lightweight plug-in framework that enables controlled cross-modal interactions and consistently improves forecasting performance across diverse datasets and models.
+We identify ***"constrained fusion"*** as the key principle for effective multimodal forecasting, showing that controlling cross-modal interactions consistently improves performance.
+
+Building on this, we propose **Controlled Fusion Adapter (CFA)**, a lightweight plug-in framework that employs low-rank adapters to enable selective and controlled fusion, consistently improving performance without modifying the TS backbone.
 
 <br>
 
-### **Overview of Conditional Fusion Adapter (CFA)**
+### **Overview of Constrained Fusion (& CFA)**
 
 <div align="center">
   <img src="figures/main_figure.png" width="100%">
 </div>
 
 Key contributions:
-- **10 fusion methods** (6 naive + 4 selective) evaluated across **14 time series backbones** and **4 text encoders**
+- **10 fusion methods** (6 naive + 4 constrained) evaluated across **14 time series backbones** and **4 text encoders**
 - **9 real-world datasets** spanning different domains and temporal frequencies
 - Modular architecture enabling plug-and-play combination of any backbone, text encoder, and fusion strategy
 
@@ -120,7 +122,7 @@ For each combination of dataset, backbone, and horizon, the best learning rate i
 |:---|:---|:---|
 | **Naive** | Additive | First (Input), Middle (Intermediate), Last (Output) |
 | | Concat | First (Input), Middle (Intermediate), Last (Output) |
-| **Selective** | — | Gating, FiLM, Orthogonal, **CFA (Ours)** |
+| **Constrained** | — | Gating, FiLM, Orthogonal, **CFA (Ours)** |
 
 <br>
 
