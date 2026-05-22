@@ -1,10 +1,6 @@
 # Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion
 
 
-<p align="center">
-  <a href="https://arxiv.org/pdf/2603.22372"><img src="https://img.shields.io/badge/arXiv-2603.22372-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License"></a>
-</p>
 
 
 ## Overview
@@ -157,23 +153,7 @@ Results are saved to `./results/`.
 
 <br>
 
-## Citation
-
-If you find this work useful, please cite:
-
-```bibtex
-@article{lee2026rethinking,
-  title={Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion},
-  author={Lee, Seunghan and Seo, Jun and Lee, Jaehoon and Yoo, Sungdong and Kim, Minjae and Lim, Tae Yoon and Kang, Dongwan and Choi, Hwanil and Lee, SoonYoung and Ahn, Wonbin},
-  journal={arXiv preprint arXiv:2603.22372},
-  year={2026}
-}
-```
 
 ## Acknowledgements
 
 This codebase builds upon [Time-MMD](https://github.com/AdityaLab/Time-MMD).
-
-## Contact
-
-Seunghan Lee — seunghan.lee@lgresearch.ai
