@@ -1,6 +1,11 @@
 # Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion
 
 
+<p align="center">
+  <a href="https://arxiv.org/pdf/2603.22372"><img src="https://img.shields.io/badge/arXiv-2603.22372-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License"></a>
+</p>
+
 
 
 ## Overview
@@ -20,6 +25,7 @@ Building on this, we propose **Controlled Fusion Adapter (CFA)**, a lightweight 
 <div align="center">
   <img src="figures/main_figure.png" width="100%">
 </div>
+
 
 <br>
 
@@ -58,38 +64,38 @@ cfa/
 
 We use 9 datasets from [Time-MMD](https://github.com/AdityaLab/Time-MMD) across diverse domains:
 
-| Domain | Dataset | Frequency |
-|:---|:---|:---:|
-| Agriculture | US Retail Broiler Composite | Monthly |
-| Climate | US Precipitation | Monthly |
-| Economy | US Trade Balance | Monthly |
-| Energy | US Gasoline Price | Weekly |
-| Environment | New York AQI | Daily |
-| Public Health | US Flu Ratio | Weekly |
-| Security | US FEMA Grant | Monthly |
-| Social Good | US Unemployment Rate | Monthly |
-| Traffic | US VMT | Monthly |
+| Domain        | Dataset                     | Frequency |
+| :------------ | :-------------------------- | :-------: |
+| Agriculture   | US Retail Broiler Composite |  Monthly  |
+| Climate       | US Precipitation            |  Monthly  |
+| Economy       | US Trade Balance            |  Monthly  |
+| Energy        | US Gasoline Price           |  Weekly   |
+| Environment   | New York AQI                |   Daily   |
+| Public Health | US Flu Ratio                |  Weekly   |
+| Security      | US FEMA Grant               |  Monthly  |
+| Social Good   | US Unemployment Rate        |  Monthly  |
+| Traffic       | US VMT                      |  Monthly  |
 
 <br>
 
 ### Models
 
-| Category | Type | Models |
-|:---|:---|:---|
-| **Time Series** | Transformer | Nonstationary Transformer, PatchTST, iTransformer, Crossformer, FEDformer, Autoformer, Reformer, Informer, Transformer |
-| | Linear / MLP | DLinear, TiDE, TSMixer |
-| | Others | Koopa, FiLM |
-| **Text Encoder** | — | BERT, GPT-2, Llama 3, Doc2Vec |
+| Category         | Type         | Models                                                       |
+| :--------------- | :----------- | :----------------------------------------------------------- |
+| **Time Series**  | Transformer  | Nonstationary Transformer, PatchTST, iTransformer, Crossformer, FEDformer, Autoformer, Reformer, Informer, Transformer |
+|                  | Linear / MLP | DLinear, TiDE, TSMixer                                       |
+|                  | Others       | Koopa, FiLM                                                  |
+| **Text Encoder** | —            | BERT, GPT-2, Llama 3, Doc2Vec                                |
 
 <br>
 
 ### Forecasting Horizons
 
-| Frequency | Horizons (*H*) | Lookback | Label |
-|:---:|:---|:---:|:---:|
-| Daily | 48, 96, 192, 336 | 96 | 48 |
-| Weekly | 12, 24, 36, 48 | 36 | 18 |
-| Monthly | 6, 8, 10, 12 | 8 | 4 |
+| Frequency | Horizons (*H*)   | Lookback | Label |
+| :-------: | :--------------- | :------: | :---: |
+|   Daily   | 48, 96, 192, 336 |    96    |  48   |
+|  Weekly   | 12, 24, 36, 48   |    36    |  18   |
+|  Monthly  | 6, 8, 10, 12     |    8     |   4   |
 
 <br>
 
@@ -103,17 +109,18 @@ For each combination of dataset, backbone, and horizon, the best learning rate i
 
 ### Fusion Methods
 
-| Category | Type | Methods |
-|:---|:---|:---|
-| **Naive** | Additive | First (Input), Middle (Intermediate), Last (Output) |
-| | Concat | First (Input), Middle (Intermediate), Last (Output) |
-| **Constrained** | — | Gating, FiLM, Orthogonal, **CFA (Ours)** |
+| Category        | Type     | Methods                                             |
+| :-------------- | :------- | :-------------------------------------------------- |
+| **Naive**       | Additive | First (Input), Middle (Intermediate), Last (Output) |
+|                 | Concat   | First (Input), Middle (Intermediate), Last (Output) |
+| **Constrained** | —        | Gating, FiLM, Orthogonal, **CFA (Ours)**            |
 
 <br>
 
 ## Multimodal Datasets
 
 Download datasets from [Time-MMD](https://github.com/AdityaLab/Time-MMD) and place them under `./data/` following the directory structure:
+
 ```
 data/
 ├── Algriculture/
@@ -130,6 +137,7 @@ data/
 <br>
 
 ## Running Experiments
+
 - **10 fusion methods** (6 naive + 4 constrained) evaluated across **14 time series backbones** and **4 text encoders**
 - **9 real-world datasets** spanning different domains and temporal frequencies
 - Modular architecture enabling plug-and-play combination of any backbone, text encoder, and fusion strategy
@@ -143,6 +151,7 @@ bash scripts/run_timemmd.sh
 ```
 
 This iterates over all combinations of:
+
 - 14 backbone models
 - 4 text encoders (BERT, GPT-2, Llama 3, Doc2Vec)
 - 11 fusion modes (including unimodal baseline)
@@ -153,7 +162,23 @@ Results are saved to `./results/`.
 
 <br>
 
+## Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@article{lee2026rethinking,
+  title={Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion},
+  author={Lee, Seunghan and Seo, Jun and Lee, Jaehoon and Yoo, Sungdong and Kim, Minjae and Lim, Tae Yoon and Kang, Dongwan and Choi, Hwanil and Lee, SoonYoung and Ahn, Wonbin},
+  journal={arXiv preprint arXiv:2603.22372},
+  year={2026}
+}
+```
 
 ## Acknowledgements
 
 This codebase builds upon [Time-MMD](https://github.com/AdityaLab/Time-MMD).
+
+## Contact
+
+Seunghan Lee — seunghan.lee@lgresearch.ai
