@@ -1,10 +1,26 @@
-# Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion
+<div align="center">
 
+# Rethinking Multimodal Fusion for Time Series:<br>Auxiliary Modalities Need Constrained Fusion
 
-<p align="center">
-  <a href="https://arxiv.org/pdf/2603.22372"><img src="https://img.shields.io/badge/arXiv-2603.22372-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License"></a>
-</p>
+**CFA: Controlled Fusion Adapter**
+
+<a href="https://arxiv.org/abs/2603.22372"><img src="https://img.shields.io/badge/KDD%202026%20Workshop-MILETS%20(Oral)-7b2cbf.svg" alt="KDD 2026 Workshop (MILETS), Oral"></a>
+<a href="https://arxiv.org/abs/2603.22372"><img src="https://img.shields.io/badge/arXiv-2603.22372-b31b1b.svg?logo=arxiv&logoColor=white" alt="arXiv"></a>
+<a href="https://arxiv.org/pdf/2603.22372"><img src="https://img.shields.io/badge/Paper-PDF-red.svg" alt="Paper PDF"></a>
+<a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-green.svg" alt="License"></a>
+
+Seunghan Lee, Jun Seo, Jaehoon Lee, Sungdong Yoo, Minjae Kim,<br>
+Tae Yoon Lim, Dongwan Kang, Hwanil Choi, SoonYoung Lee, Wonbin Ahn
+
+LG AI Research
+
+</div>
+
+Official code for the paper
+[*Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion*](https://arxiv.org/abs/2603.22372),
+accepted to the **KDD 2026 Workshop (MILETS)** as an **Oral** presentation.
+
+---
 
 
 
@@ -18,6 +34,12 @@ We identify ***"constrained fusion"*** as the key principle for effective multim
 
 Building on this, we propose **Controlled Fusion Adapter (CFA)**, a lightweight plug-in framework that employs low-rank adapters to enable selective and controlled fusion, consistently improving performance without modifying the TS backbone.
 
+<div align="center">
+  <img src="figures/teaser.png" width="55%" alt="Normalized MSE of constrained and naive fusion methods, averaged over 2K settings, against the unimodal baseline.">
+
+  *Across 2K settings, naive fusion often underperforms the unimodal baseline, while constrained fusion consistently improves over it.*
+</div>
+
 <br>
 
 ### **Overview of Constrained Fusion (& CFA)**
@@ -26,6 +48,16 @@ Building on this, we propose **Controlled Fusion Adapter (CFA)**, a lightweight 
   <img src="figures/main_figure.png" width="100%">
 </div>
 
+
+<br>
+
+## Results
+
+The same ordering holds for every text model: constrained fusion stays at or below the unimodal baseline, and CFA is the best in each.
+
+<div align="center">
+  <img src="figures/results_text_models.png" width="100%" alt="Performance of each fusion method by text model (BERT, GPT2, Llama3, Doc2Vec), averaged over 9 datasets, 14 TS models and 4 horizons.">
+</div>
 
 <br>
 
@@ -167,10 +199,11 @@ Results are saved to `./results/`.
 If you find this work useful, please cite:
 
 ```bibtex
-@article{lee2026rethinking,
+@inproceedings{lee2026rethinking,
   title={Rethinking Multimodal Fusion for Time Series: Auxiliary Modalities Need Constrained Fusion},
   author={Lee, Seunghan and Seo, Jun and Lee, Jaehoon and Yoo, Sungdong and Kim, Minjae and Lim, Tae Yoon and Kang, Dongwan and Choi, Hwanil and Lee, SoonYoung and Ahn, Wonbin},
-  journal={arXiv preprint arXiv:2603.22372},
+  booktitle={KDD 2026 Workshop on Mining and Learning from Time Series (MILETS)},
+  note={arXiv:2603.22372},
   year={2026}
 }
 ```
